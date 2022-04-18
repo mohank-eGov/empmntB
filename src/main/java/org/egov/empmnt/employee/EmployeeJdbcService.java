@@ -21,14 +21,15 @@ public EmployeeJdbcService(JdbcTemplate jdbcTemplate){
 
     @Override
     public int createEmployee(Employee employee) {
-        var sql ="INSERT INTO employee(name,email) VALUES(?,?,?)";
-        return jdbcTemplate.update(sql,new Object[]{employee.getName(),employee.getEmail()});
+        var sql ="INSERT INTO employee(name,email,mobile,age) VALUES(?,?,?,?)";
+        return jdbcTemplate.update(sql,new Object[]{employee.getName(),employee.getEmail(),employee.getMobile(),employee.getAge()
+        });
     }
 
     @Override
     public int updateEmployee(Employee employee,int id) {
-    var sql="UPDATE employee set name=?,email=?WHERE id=?";
-        return jdbcTemplate.update(sql,employee.getName(),employee.getEmail(),id);
+    var sql="UPDATE employee set name=?,email=?,mobile=?,age=? WHERE id=?";
+        return jdbcTemplate.update(sql,employee.getName(),employee.getEmail(),employee.getMobile(),employee.getAge(),id);
     }
 
     @Override

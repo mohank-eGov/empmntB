@@ -11,7 +11,9 @@ public class EmployeeRowMapper implements RowMapper<Employee> {
         return new Employee(
                 rs.getInt("id"),
                 rs.getString("name"),
-                rs.getString("email")
+                rs.getString("email"),
+                rs.getString("mobile"),
+                rs.getInt("age")
         );
     }
 }

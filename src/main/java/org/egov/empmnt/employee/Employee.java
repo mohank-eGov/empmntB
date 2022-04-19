@@ -1,11 +1,20 @@
 package org.egov.empmnt.employee;
 
+import org.springframework.format.annotation.NumberFormat;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Pattern;
+
 public class Employee {
     private int id;
     private String name;
+    @Email(message = "Email should be valid")
     private  String email;
 
+
+    @Pattern(regexp="(^$|[0-9]{10})",message = "Mobile Number Should be Valid")
     private String mobile;
+
 
     private int age;
 

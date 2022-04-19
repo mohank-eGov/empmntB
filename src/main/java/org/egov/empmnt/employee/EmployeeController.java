@@ -2,6 +2,7 @@ package org.egov.empmnt.employee;
 
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -25,7 +26,7 @@ public class EmployeeController {
     }
 
     @PostMapping
-    public int createEmployee(@RequestBody Employee employee){
+    public int createEmployee (@Valid @RequestBody Employee employee){
         return employeeService.createEmployee(employee);
     }
 

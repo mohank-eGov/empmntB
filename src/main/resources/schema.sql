@@ -19,7 +19,7 @@ INSERT INTO employee(name,email,mobile,age) VALUES(?,?,?,?)
 UPDATE employee set name=?,email=?,mobile=?,age=? WHERE id=?
 
 --delete
-
+DELETE FROM employee WHERE id=?
 
 --get data
 

@@ -1,5 +1,6 @@
 package org.egov.empmnt.employee;
 
+import org.egov.empmnt.department.Department;
 import org.springframework.format.annotation.NumberFormat;
 
 import javax.validation.constraints.Email;
@@ -17,6 +18,7 @@ public class Employee {
 
 
     private int age;
+
 
     public Employee(){
 

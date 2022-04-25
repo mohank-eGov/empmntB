@@ -6,6 +6,10 @@ CREATE TABLE employee (
    email VARCHAR(200) NOT NULL,
    mobile VARCHAR(20) NOT NULL,
    age integer NULL
+   department_id int NOT NULL,
+   CONSTRAINT employee_department_id FOREIGN KEY (department_id) REFERENCES department (id)
+
+
 )
 
 --insert data

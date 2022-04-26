@@ -23,14 +23,14 @@ public class DepartmentJdbcService implements DepartmentDao{
     public int createDepartment(Department department) {
         var sql ="INSERT INTO department(name) VALUES(?)";
 
-        return jdbcTemplate.update(sql,new Object[]{department.getName()});
+        return jdbcTemplate.update(sql,new Object[]{department.getDepartment()});
     }
 
     @Override
     public int updateDepartment(Department department, int id) {
         var sql="UPDATE department set name=? WHERE id=?";
 
-        return jdbcTemplate.update(sql,department.getName());
+        return jdbcTemplate.update(sql,department.getDepartment());
     }
 
     @Override

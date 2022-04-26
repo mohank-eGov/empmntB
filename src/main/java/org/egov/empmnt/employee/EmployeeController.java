@@ -22,6 +22,7 @@ public class EmployeeController {
 
     @GetMapping("{id}")
     public Employee employee(@PathVariable("id") Integer id){
+
         return employeeService.employee(id);
     }
 
@@ -33,7 +34,7 @@ public class EmployeeController {
     @CrossOrigin(origins = "*",allowedHeaders = "*")
     @PutMapping("{id}")
     public int updateEmployee(@PathVariable Integer id,@RequestBody Employee employee){
-        System.out.println(id+"id"+employee);
+
         return employeeService.updateEmployee(employee,id);
     }
 

@@ -1,7 +1,10 @@
 package org.egov.empmnt.department;
 
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
+@Service
 public class DepartmentService {
 
     private final DepartmentDao departmentDao;

@@ -77,7 +77,7 @@ public EmployeeJdbcService(JdbcTemplate jdbcTemplate){
 
     @Override
     public Employee employee(int id) {
-    var sql	 = "SELECT * FROM employee,department WHERE employee.department_id=department.id and employee.id =?";
+    var sql	 = "SELECT * FROM employee,department WHERE employee.department_id=department.department_id and employee.id =?";
         return jdbcTemplate.query(sql,new ResultSetExtractor<Employee>(){
 
             @Override

@@ -28,20 +28,20 @@ public class DepartmentJdbcService implements DepartmentDao{
 
     @Override
     public int updateDepartment(Department department, int id) {
-        var sql="UPDATE department set name=? WHERE id=?";
+        var sql="UPDATE department set name=? WHERE departmentId=?";
 
-        return jdbcTemplate.update(sql,department.getDepartment());
+        return jdbcTemplate.update(sql,department.getDepartment(),id);
     }
 
     @Override
     public int deleteDepartment(int id) {
-        var sql ="DELETE FROM department WHERE id=?";
+        var sql ="DELETE FROM department WHERE departmentId=?";
         return jdbcTemplate.update(sql,id);
     }
 
     @Override
     public Department department(int id) {
-        var sql	 = "SELECT * FROM department WHERE id =?";
+        var sql	 = "SELECT * FROM department WHERE departmentId =?";
         return jdbcTemplate.queryForObject(sql,new DepartmentRowMapper(),id);
     }
 }

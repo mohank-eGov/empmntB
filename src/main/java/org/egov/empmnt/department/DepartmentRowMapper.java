@@ -9,7 +9,7 @@ public class DepartmentRowMapper implements RowMapper<Department> {
     @Override
     public Department mapRow(ResultSet rs, int rowNum) throws SQLException {
         return new Department(
-                rs.getInt("id"),
+                rs.getInt("department_id"),
                 rs.getString("department")
         );
     }

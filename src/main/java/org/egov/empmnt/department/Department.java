@@ -3,7 +3,7 @@ package org.egov.empmnt.department;
 import org.egov.empmnt.employee.Employee;
 
 public class Department {
-    private int id;
+    private int department_id;
 
     private String department;
 
@@ -14,15 +14,18 @@ public class Department {
     }
 
     public Department(
-            int id,String department
+            int department_id,String department
     ){
-        this.id=id;
+        this.department_id=department_id;
         this.department=department;
     }
 
+    public int getDepartment_id() {
+        return department_id;
+    }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setDepartment_id(int department_id) {
+        this.department_id = department_id;
     }
 
     public void setDepartment(String department) {
@@ -33,14 +36,10 @@ public class Department {
         return department;
     }
 
-    public int getId() {
-        return id;
-    }
-
     @Override
     public String toString() {
         return "Department{" +
-                "id=" + id +
+                "department_id=" + department_id +
                 ", department='" + department + '\'' +
                 '}';
     }

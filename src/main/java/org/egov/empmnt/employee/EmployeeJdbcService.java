@@ -21,7 +21,12 @@ public EmployeeJdbcService(JdbcTemplate jdbcTemplate){
 }
     @Override
     public List<Employee> allEmployee() {
-        var sql= "SELECT * from employee,department where employee.department_id=department.id";
+       var sql= "SELECT * from employee,department where employee.department_id=department.department_id";
+//        var sql ="select e.id as id ,e.name as name,e.email as email,e.mobile as mobile,\n" +
+//                "e.age as age,d.department_id as department_id,d.department as department\n" +
+//                "  from((employee e \n" +
+//                "  left join employee_department ed ON e.id = ed.employee_id)\n" +
+//                "  left join department d ON d.department_id=ed.department_id)";
         return jdbcTemplate.query(sql, new ResultSetExtractor<List<Employee>>() {
             @Override
             public List<Employee> extractData(ResultSet rs) throws SQLException, DataAccessException {
@@ -30,7 +35,7 @@ public EmployeeJdbcService(JdbcTemplate jdbcTemplate){
                Employee currentEmployee=null;
                int employeeIdx=0;
                int departmentIdx=0;
-
+               String department=null;
                while (rs.next()){
 
                    if(currentEmployee == null || !(employeeId == rs.getInt("id"))){
@@ -39,7 +44,10 @@ public EmployeeJdbcService(JdbcTemplate jdbcTemplate){
                        departmentIdx=0;
                        employees.add(currentEmployee);
                    }
-                   currentEmployee.setDepartment(new DepartmentRowMapper().mapRow(rs,departmentIdx++));
+
+
+                   department=rs.getString("department");
+                    if(department!=null) currentEmployee.setDepartment(new DepartmentRowMapper().mapRow(rs,departmentIdx++));
 
                }
                return employees;

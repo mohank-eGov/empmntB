@@ -5,6 +5,8 @@ import org.springframework.format.annotation.NumberFormat;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Pattern;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Employee {
     private int id;
@@ -19,7 +21,9 @@ public class Employee {
 
     private int department_id;
 
-    private Department department;
+//   private List<Department> department = new ArrayList<Department>();
+
+    private  Department department;
 
     public Employee(){
 
@@ -93,6 +97,17 @@ public class Employee {
     public void setDepartment_id(int department_id) {
         this.department_id = department_id;
     }
+
+//    public List<Department> getDepartment() {
+//        return department;
+//    }
+//
+//    public void setDepartment(Department department) {
+//        this.department.add( department);
+//    }
+
+
+
 
     public Department getDepartment() {
         return department;

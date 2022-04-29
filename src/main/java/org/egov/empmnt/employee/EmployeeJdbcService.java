@@ -21,6 +21,7 @@ public EmployeeJdbcService(JdbcTemplate jdbcTemplate){
 }
     @Override
     public List<Employee> allEmployee() {
+
        var sql= "SELECT * from employee,department where employee.department_id=department.department_id";
 //        var sql ="select e.id as id ,e.name as name,e.email as email,e.mobile as mobile,\n" +
 //                "e.age as age,d.department_id as department_id,d.department as department\n" +
